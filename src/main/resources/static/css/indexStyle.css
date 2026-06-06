@@ -1,0 +1,91 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+/* Background same as login/register */
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #1e1e2f, #4e4376);
+}
+
+/* Wrapper */
+.wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Glass Card */
+.glass-card{
+    width:420px;
+    padding:50px 35px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    text-align:center;
+    color:#fff;
+}
+
+/* Heading */
+.glass-card h1{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.glass-card p{
+    font-size:15px;
+    opacity:0.85;
+    margin-bottom:30px;
+}
+
+/* Buttons container */
+.buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+/* Base Button */
+.btn{
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+/* Primary Button (Gradient) */
+.primary{
+    background: linear-gradient(135deg, #00e0ff, #7b2ff7);
+    color:white;
+}
+
+.primary:hover{
+    transform: translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Secondary Button */
+.secondary{
+    background: rgba(255,255,255,0.15);
+    color:white;
+    border:1px solid rgba(255,255,255,0.3);
+}
+
+.secondary:hover{
+    background: rgba(255,255,255,0.25);
+}

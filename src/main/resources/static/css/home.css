@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+/* ================= BODY ================= */
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    min-height:100vh;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6) !important;
+}
+
+.navbar-brand{
+    font-size:22px;
+    letter-spacing:1px;
+}
+
+/* Navbar icons */
+.nav-link i {
+    font-size:18px;
+    margin-left:15px;
+    transition:0.3s;
+}
+
+.nav-link i:hover{
+    transform:scale(1.2);
+}
+
+.fa-envelope { color:#ea4335; }
+.fa-whatsapp { color:#25D366; }
+.fa-twitter  { color:#1DA1F2; }
+.fa-telegram { color:#229ED9; }
+
+/* ================= HEADING SECTION ================= */
+.container h2{
+    color:#ffffff;
+    font-weight:600;
+}
+
+.container p{
+    color:#d1d5db;
+}
+
+/* ================= JOB CARDS ================= */
+.job-card{
+    border:none;
+    border-radius:18px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    transition:0.4s ease;
+    color:white;
+}
+
+.job-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.job-card i{
+    color:#00e0ff;
+}
+
+.card-title{
+    font-weight:600;
+}
+
+.card-text{
+    font-size:14px;
+    opacity:0.85;
+}
+
+/* ================= PREMIUM BUTTON ================= */
+.premium-btn{
+    background:linear-gradient(135deg,#00e0ff,#7b2ff7);
+    border:none;
+    padding:10px 24px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:500;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:0.3s;
+    color:white;
+    text-decoration:none;
+}
+
+.premium-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    background:linear-gradient(135deg,#7b2ff7,#00e0ff);
+    color:white;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+    margin-top:80px;
+    background:#0a0f1a;
+    color:#cbd5f5;
+    padding:60px 0 0;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+}
+
+.footer-box h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+.footer-box p{
+    font-size:14px;
+    line-height:1.6;
+}
+
+.logo{
+    color:#00e0ff;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.footer-box ul{
+    list-style:none;
+    padding:0;
+}
+
+.footer-box ul li{
+    margin-bottom:10px;
+}
+
+.footer-box ul li a,
+.social-links a{
+    color:#cbd5f5;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.footer-box ul li a:hover,
+.social-links a:hover{
+    color:#00e0ff;
+    transform:translateY(-3px);
+}
+
+.social-links a{
+    font-size:18px;
+    margin-right:12px;
+    display:inline-block;
+}
+
+.footer-bottom{
+    margin-top:40px;
+    padding:15px 0;
+    text-align:center;
+    background:#020617;
+    font-size:14px;
+    color:#94a3b8;
+}

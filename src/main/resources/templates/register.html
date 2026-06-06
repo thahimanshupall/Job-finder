@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register | JobFinder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/register.css}"/>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div class="left-content">
+            <div class="brand">
+                <div class="brand-icon">JF</div>
+                <span class="brand-name">JobFinder</span>
+            </div>
+            <h2 class="left-title">Find your dream job today</h2>
+            <p class="left-sub">Join thousands of professionals who found their perfect career match with us.</p>
+
+            <div class="features">
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <span>Smart job matching</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📍</span>
+                    <span>Location-based results</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔔</span>
+                    <span>Instant job alerts</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💼</span>
+                    <span>1000+ companies hiring</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel — Form -->
+    <div class="right-panel">
+        <div class="form-container">
+
+            <div class="form-header">
+                <h1 class="form-title">Create Account 🚀</h1>
+                <p class="form-subtitle">Start your job journey with us</p>
+            </div>
+
+            <form th:action="@{/register}" th:object="${user}" method="post">
+
+                <div class="form-grid">
+
+                    <!-- Name -->
+                    <div class="field-group">
+                        <label class="field-label">Full Name</label>
+                        <input type="text" th:field="*{name}" class="field-input" placeholder="e.g. Rahul Sharma"/>
+                        <p class="field-error" th:errors="*{name}"></p>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="field-group">
+                        <label class="field-label">Mobile Number</label>
+                        <input type="text" th:field="*{number}" class="field-input" placeholder="e.g. 9876543210"/>
+                        <p class="field-error" th:errors="*{number}"></p>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="field-group full-width">
+                        <label class="field-label">Email Address</label>
+                        <input type="email" th:field="*{email}" class="field-input" placeholder="e.g. rahul@example.com"/>
+                        <p class="field-error" th:errors="*{email}"></p>
+                    </div>
+
+                    <!-- State -->
+                    <div class="field-group">
+                        <label class="field-label">State</label>
+                        <input type="text" th:field="*{state}" class="field-input" placeholder="e.g. Uttar Pradesh"/>
+                        <p class="field-error" th:errors="*{state}"></p>
+                    </div>
+
+                    <!-- District -->
+                    <div class="field-group">
+                        <label class="field-label">District</label>
+                        <input type="text" th:field="*{district}" class="field-input" placeholder="e.g. Lucknow"/>
+                        <p class="field-error" th:errors="*{district}"></p>
+                    </div>
+
+                    <!-- Country -->
+                    <div class="field-group">
+                        <label class="field-label">Country</label>
+                        <input type="text" th:field="*{country}" class="field-input" placeholder="e.g. India"/>
+                        <p class="field-error" th:errors="*{country}"></p>
+                    </div>
+
+                    <!-- Pincode -->
+                    <div class="field-group">
+                        <label class="field-label">Pincode</label>
+                        <input type="text" th:field="*{pincode}" class="field-input" placeholder="e.g. 226001"/>
+                        <p class="field-error" th:errors="*{pincode}"></p>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="field-group full-width">
+                        <label class="field-label">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" th:field="*{password}" class="field-input" placeholder="Create a strong password" id="passwordInput"/>
+                            <button type="button" class="toggle-pass" onclick="togglePassword()">👁️</button>
+                        </div>
+                        <p class="field-error" th:errors="*{password}"></p>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn-register">Create Account →</button>
+
+            </form>
+
+            <div class="login-link">
+                Already have an account?
+                <a th:href="@{/login}">Login here</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function togglePassword() {
+        const input = document.getElementById('passwordInput');
+        input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    document.querySelectorAll('.field-input').forEach(input => {
+        input.addEventListener('focus', () => input.closest('.field-group').classList.add('focused'));
+        input.addEventListener('blur', ()  => input.closest('.field-group').classList.remove('focused'));
+    });
+</script>
+
+</body>
+</html>

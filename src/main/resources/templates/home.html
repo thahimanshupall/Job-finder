@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home | JobFinder</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+
+        <a class="navbar-brand fw-bold" th:href="@{/home}">JobFinder</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+
+                <!-- Welcome User -->
+                <li class="nav-item me-3" th:if="${loggedUser != null}">
+                    <span class="nav-link text-white">
+                        Hi, <span th:text="${loggedUser.name}">User</span>
+                    </span>
+                </li>
+
+                <!-- Logout -->
+                <li class="nav-item me-3" th:if="${loggedUser != null}">
+                    <a th:href="@{/logout}" class="btn btn-outline-light btn-sm">
+                        Logout
+                    </a>
+                </li>
+
+                <!-- Social Icons -->
+                <li class="nav-item">
+                    <a class="nav-link" href="mailto:techkhp@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://wa.me/919999999999" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- =============== NAVBAR END =============== -->
+
+
+<!-- ================= HERO SECTION ================= -->
+<div class="container text-center my-5">
+
+    <h2 class="fw-bold mb-3">Top Job Platforms for Freshers 🚀</h2>
+    <p class="mb-4">Explore trusted job portals and kickstart your career journey</p>
+
+</div>
+
+
+<!-- ================= JOB CARDS ================= -->
+<div class="container pb-5">
+    <div class="row g-4">
+
+        <div class="col-md-4" th:each="job : ${jobs}">
+            <div class="card job-card h-100">
+                <div class="card-body text-center">
+
+                    <!-- Dynamic Icon -->
+                    <i th:class="${job.icon} + ' fa-3x mb-3'"></i>
+
+                    <h5 class="card-title" th:text="${job.name}">Platform</h5>
+
+                    <p class="card-text" th:text="${job.description}">
+                        Description
+                    </p>
+
+                    <a th:href="${job.link}" target="_blank" class="premium-btn">
+                        Visit Site
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- =============== JOB SECTION END =============== -->
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2 class="logo">TechKHP</h2>
+            <p>Modern IT & Web Solutions company focused on scalable and
+                user-friendly digital products.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/users}">User List</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: techkhp@gmail.com</p>
+            <p>Phone: +91 7417544546</p>
+            <p>Kanpur, Uttar Pradesh</p>
+            <p>India</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 TechKHP. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- =============== FOOTER END =============== -->
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login | JobFinder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div class="left-content">
+            <div class="brand">
+                <div class="brand-icon">JF</div>
+                <span class="brand-name">JobFinder</span>
+            </div>
+            <h2 class="left-title">Welcome back!</h2>
+            <p class="left-sub">Login to continue your job journey and explore thousands of opportunities.</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-num">1000+</div>
+                    <div class="stat-lab">Companies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">50K+</div>
+                    <div class="stat-lab">Jobs Posted</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">10K+</div>
+                    <div class="stat-lab">Users</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <div class="form-container">
+
+            <div class="form-header">
+                <h1 class="form-title">Welcome Back 👋</h1>
+                <p class="form-subtitle">Login to continue your job journey</p>
+            </div>
+
+            <form th:action="@{/login}" method="post">
+
+              
+
+                <!-- Error Message -->
+                <div class="error-box" th:if="${error}">
+                    <span>⚠️</span>
+                    <span th:text="${error}"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="field-group">
+                    <label class="field-label">Email Address</label>
+                    <input type="email" name="email" class="field-input"
+                           placeholder="Enter your email" required/>
+                </div>
+
+                <!-- Password -->
+                <div class="field-group">
+                    <label class="field-label">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" name="password" class="field-input"
+                               placeholder="Enter your password" required id="passwordInput"/>
+                        <button type="button" class="toggle-pass" onclick="togglePassword()">👁️</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-login">Login →</button>
+
+            </form>
+
+            <div class="register-link">
+                Don't have an account?
+                <a th:href="@{/register}">Register here</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function togglePassword() {
+        const input = document.getElementById('passwordInput');
+        input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    document.querySelectorAll('.field-input').forEach(input => {
+        input.addEventListener('focus', () => input.closest('.field-group').classList.add('focused'));
+        input.addEventListener('blur',  () => input.closest('.field-group').classList.remove('focused'));
+    });
+</script>
+
+</body>
+</html>
